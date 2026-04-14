@@ -30,7 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300`}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark" // Force dark as default for testing
+          enableSystem={false} // Disable system sync to ensure the manual toggle takes priority
+        >
           <Navbar />
           <main className="flex-1 max-w-6xl mx-auto w-full px-4">
             {children}

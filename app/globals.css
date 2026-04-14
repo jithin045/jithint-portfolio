@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* Crucial: Map the dark variant to the .dark class on the html element */
+@variant dark (&:where(.dark, .dark *));
+
+/* Add this to ensure the browser UI matches your theme */
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
