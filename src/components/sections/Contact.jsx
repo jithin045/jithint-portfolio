@@ -1,8 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -13,10 +20,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-28 bg-[#0a0a0a] overflow-hidden">
+    <section id="contact" className="relative py-28 bg-white dark:bg-[#0a0a0a] transition-colors duration-300 overflow-hidden">
       
       {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-[120px] pointer-events-none" />
+      {mounted && (
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-500/10 dark:bg-purple-600/5 rounded-full blur-[120px] pointer-events-none" />
+      )}
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
         <motion.div
@@ -28,13 +37,13 @@ export default function Contact() {
         >
           {/* Header */}
           <motion.div variants={fadeInUp} className="space-y-3">
-            <h2 className="text-sm uppercase tracking-[0.3em] text-purple-500/70 font-semibold">
+            <h2 className="text-sm uppercase tracking-[0.3em] text-purple-600 dark:text-purple-500/70 font-bold">
               Contact
             </h2>
 
-            <p className="text-3xl md:text-5xl font-light tracking-tight text-white">
+            <p className="text-3xl md:text-5xl font-light tracking-tight text-black dark:text-white">
               Let's{" "}
-              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">
+              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-500">
                 Connect.
               </span>
             </p>
@@ -43,7 +52,7 @@ export default function Contact() {
           {/* Description */}
           <motion.p
             variants={fadeInUp}
-            className="text-gray-400 text-base md:text-lg max-w-xl mx-auto font-light leading-relaxed"
+            className="text-gray-600 dark:text-gray-400 text-base md:text-lg max-w-xl mx-auto font-light leading-relaxed"
           >
             Ready to build something scalable? Whether you have a project in mind 
             or just want to chat about the MERN stack, my inbox is always open.
@@ -55,10 +64,17 @@ export default function Contact() {
               href="mailto:your-email@gmail.com"
               whileHover={{ scale: 1.02, y: -4 }}
               whileTap={{ scale: 0.98 }}
-              className="group relative inline-flex items-center justify-center px-10 py-4 font-medium text-white transition-all duration-300 bg-white/[0.03] border border-white/10 rounded-xl hover:bg-white/[0.07] hover:border-purple-500/50 overflow-hidden"
+              className="
+                group relative inline-flex items-center justify-center px-10 py-4 font-medium 
+                text-gray-900 dark:text-white transition-all duration-300 
+                bg-gray-50 dark:bg-white/[0.03] 
+                border border-gray-200 dark:border-white/10 
+                rounded-xl hover:bg-gray-100 dark:hover:bg-white/[0.07] 
+                hover:border-purple-500/50 overflow-hidden
+              "
             >
               {/* Shine Effect */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-black/5 dark:via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               
               <span className="relative flex items-center gap-3 text-base tracking-tight">
                 Start a Conversation
@@ -74,15 +90,15 @@ export default function Contact() {
             </motion.a>
 
             {/* Social Links */}
-            <div className="mt-12 flex gap-8 text-[10px] font-mono tracking-[0.2em] text-gray-500">
+            <div className="mt-12 flex gap-8 text-[10px] font-mono tracking-[0.2em] text-gray-400 dark:text-gray-500">
               {["LINKEDIN", "GITHUB", "TWITTER"].map((social) => (
                 <a 
                   key={social}
                   href="#" 
-                  className="hover:text-purple-400 transition-colors duration-300 relative group"
+                  className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 relative group"
                 >
                   {social}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-purple-500 transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-purple-600 dark:bg-purple-500 transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
             </div>
