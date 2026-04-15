@@ -32,8 +32,8 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark" // Force dark as default for testing
-          enableSystem={false} // Disable system sync to ensure the manual toggle takes priority
+          defaultTheme="dark"
+          enableSystem={false}
         >
           <Navbar />
           <main className="flex-1 max-w-6xl mx-auto w-full px-4">

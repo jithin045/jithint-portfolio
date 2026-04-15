@@ -61,7 +61,7 @@ export default function Hero() {
       >
         {/* 🔹 LEFT */}
         <div className="text-center lg:text-left order-2 lg:order-1">
-          
+
           {/* Badge */}
           <motion.span
             variants={fadeInUp}
@@ -171,20 +171,21 @@ export default function Hero() {
           className="order-1 lg:order-2 flex justify-center"
         >
           <div className="relative group">
-            <div className="absolute inset-0 bg-purple-500/10 rounded-full blur-[80px]" />
+            {/* Soft inner glow behind the transparent image */}
+            <div className="absolute inset-4 bg-purple-600/10 rounded-full blur-[60px]" />
 
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="relative w-56 h-56 md:w-72 md:h-72"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative w-64 h-64 md:w-80 md:h-80"
             >
               <img
-                src="https://ui-avatars.com/api/?name=Jithin+T&background=111827&color=fff&size=256"
+                src="/image.png"
                 alt="Jithin Avatar"
                 className="
-                  w-full h-full object-cover rounded-full
-                  border border-black/10 dark:border-white/10
-                  shadow-lg
+                  w-full h-full object-contain
+                  rounded-full
+                  /* Remove solid background and border for a floating effect */
                 "
               />
             </motion.div>
@@ -204,8 +205,8 @@ export default function Hero() {
       >
         <span className="text-[10px] uppercase tracking-widest text-gray-500">
           Scroll
-        </span>
-        <motion.div
+          </span>
+          <motion.div
           animate={{ height: [15, 30, 15] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="w-[1px] bg-gradient-to-b from-purple-500 to-transparent"
