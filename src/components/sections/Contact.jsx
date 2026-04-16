@@ -19,6 +19,12 @@ export default function Contact() {
     }
   };
 
+  // Centralized links to match your Footer
+  const socialLinks = [
+    { name: "GITHUB", url: "https://github.com/jithin045" },
+    { name: "LINKEDIN", url: "https://www.linkedin.com/in/jithin-thaliyil" },
+  ];
+
   return (
     <section id="contact" className="relative py-28 bg-white dark:bg-[#0a0a0a] transition-colors duration-300 overflow-hidden">
       
@@ -38,7 +44,7 @@ export default function Contact() {
           {/* Header */}
           <motion.div variants={fadeInUp} className="space-y-3">
             <h2 className="text-sm uppercase tracking-[0.3em] text-purple-600 dark:text-purple-500/70 font-bold">
-              Contact
+              04 // Contact
             </h2>
 
             <p className="text-3xl md:text-5xl font-light tracking-tight text-black dark:text-white">
@@ -55,13 +61,13 @@ export default function Contact() {
             className="text-gray-600 dark:text-gray-400 text-base md:text-lg max-w-xl mx-auto font-light leading-relaxed"
           >
             Ready to build something scalable? Whether you have a project in mind 
-            or just want to chat about the MERN stack, my inbox is always open.
+            or just want to chat about web architecture, my inbox is always open.
           </motion.p>
 
           {/* CTA */}
           <motion.div variants={fadeInUp} className="flex flex-col items-center pt-6">
             <motion.a
-              href="mailto:your-email@gmail.com"
+              href="mailto:your-email@gmail.com" // Update this to your email
               whileHover={{ scale: 1.02, y: -4 }}
               whileTap={{ scale: 0.98 }}
               className="
@@ -91,13 +97,15 @@ export default function Contact() {
 
             {/* Social Links */}
             <div className="mt-12 flex gap-8 text-[10px] font-mono tracking-[0.2em] text-gray-400 dark:text-gray-500">
-              {["LINKEDIN", "GITHUB", "TWITTER"].map((social) => (
+              {socialLinks.map((social) => (
                 <a 
-                  key={social}
-                  href="#" 
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 relative group"
                 >
-                  {social}
+                  {social.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-px bg-purple-600 dark:bg-purple-500 transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
