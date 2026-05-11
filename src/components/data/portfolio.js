@@ -21,7 +21,7 @@ export const portfolioData = {
       github: "https://github.com/jithin045/smart-cafe",
       live: "https://smart-cafe-zeta.vercel.app",
       image:
-        "https://placehold.co/600x400/0f172a/ffffff?text=Smart+Cafe",
+        "/smart-cafe.png",
     },
     {
       title: "Multi-Shop Management System",
@@ -30,7 +30,7 @@ export const portfolioData = {
       tech: ["React", "Node.js", "MongoDB"],
       github: "https://github.com/jithin045/managehub-frontend",
       live: "https://managehub-five.vercel.app/",
-      image: "https://placehold.co/600x400/111827/ffffff?text=Multi+Shop",
+      image: "/managehub.png",
     },
   ],
 };

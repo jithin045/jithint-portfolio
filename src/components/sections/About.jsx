@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 export default function About() {
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch for the background glow
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -59,7 +58,7 @@ export default function About() {
           >
             <div>
               <h2 className="text-xs uppercase tracking-[0.3em] text-purple-600 dark:text-purple-400 font-bold">
-                02 // Discovery
+                // Discovery
               </h2>
 
               <h3 className="text-3xl md:text-4xl font-bold mt-2 tracking-tight">

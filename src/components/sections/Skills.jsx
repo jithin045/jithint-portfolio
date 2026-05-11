@@ -123,7 +123,7 @@ export default function Skills() {
         {/* Header Section */}
         <motion.div variants={fadeInUp} className="mb-20 space-y-4">
           <h2 className="text-[10px] uppercase tracking-[0.6em] text-purple-600 dark:text-purple-400 font-bold">
-            03 // Capabilities
+            // Capabilities
           </h2>
           <h3 className="text-5xl md:text-6xl font-bold tracking-tighter">
             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-400 dark:to-blue-500">Toolkit.</span>

@@ -44,7 +44,7 @@ export default function Contact() {
           {/* Header */}
           <motion.div variants={fadeInUp} className="space-y-3">
             <h2 className="text-sm uppercase tracking-[0.3em] text-purple-600 dark:text-purple-500/70 font-bold">
-              04 // Contact
+            // Contact
             </h2>
 
             <p className="text-3xl md:text-5xl font-light tracking-tight text-black dark:text-white">

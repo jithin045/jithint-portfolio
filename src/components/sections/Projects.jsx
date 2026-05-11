@@ -32,7 +32,7 @@ export default function Projects() {
         {/* Header */}
         <div className="mb-14 text-center">
           <h2 className="text-xs uppercase tracking-[0.3em] text-purple-600 dark:text-purple-500/70 mb-2 font-bold">
-            Projects
+           // Projects
           </h2>
 
           <h3 className="text-3xl md:text-4xl font-bold tracking-tight">
