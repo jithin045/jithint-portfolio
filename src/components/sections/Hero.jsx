@@ -151,14 +151,15 @@ export default function Hero() {
             </motion.a>
 
             <motion.a
-              href="/resume.pdf"
+              href="/Jithin_t_Resume.pdf" // Corrected path (Next.js automatically looks in 'public')
+              download="Jithin_t_Resume.pdf" // The name the file will have when downloaded
               whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
               className="
-                px-6 py-3 rounded-lg
-                border border-black/20 dark:border-white/20
-                text-black dark:text-white
-                font-medium transition-all text-center
-              "
+    px-6 py-3 rounded-lg
+    border border-black/20 dark:border-white/20
+    text-black dark:text-white
+    font-medium transition-all text-center
+  "
             >
               Resume
             </motion.a>
@@ -205,8 +206,8 @@ export default function Hero() {
       >
         <span className="text-[10px] uppercase tracking-widest text-gray-500">
           Scroll
-          </span>
-          <motion.div
+        </span>
+        <motion.div
           animate={{ height: [15, 30, 15] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="w-[1px] bg-gradient-to-b from-purple-500 to-transparent"

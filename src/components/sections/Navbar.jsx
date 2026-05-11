@@ -76,7 +76,8 @@ export default function Navbar() {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="/resume.pdf"
+              href="/Jithin_t_Resume.pdf" 
+              download="Jithin_t_Resume.pdf" 
               className="
                 px-5 py-2 border
                 border-gray-300 dark:border-white/10
