@@ -1,145 +1,122 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { FiMapPin, FiCpu, FiLayers, FiDatabase } from "react-icons/fi";
+import { SiNextdotjs, SiReact, SiNodedotjs, SiMongodb, SiTailwindcss } from "react-icons/si";
 
 export default function About() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
+  const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 25 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
+  const stagger = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   return (
     <section
       id="about"
-      className="relative py-24 bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-300 overflow-hidden"
+      className="
+        relative py-24 lg:py-32
+        bg-gray-50/50 text-gray-900
+        dark:bg-[#0a0a0a]/50 dark:text-white
+        transition-colors duration-300
+      "
     >
-      {/* 🌌 Background Glow */}
-      {mounted && (
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute top-1/4 left-[-5%] w-[450px] h-[450px] bg-purple-500/10 dark:bg-purple-900/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-[-5%] w-[350px] h-[350px] bg-blue-500/5 dark:bg-blue-900/5 rounded-full blur-[120px]" />
-        </div>
-      )}
+      {/* Subtle top border for seamless blending with Hero */}
+      <div className="absolute top-0 w-full max-w-6xl left-1/2 -translate-x-1/2 px-6 h-px bg-gray-200/50 dark:bg-gray-800/50" />
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="max-w-6xl mx-auto px-6 relative z-10"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.8fr] gap-12 lg:gap-16 items-start">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Header - Minimal & Punchy */}
+        <motion.div 
+          initial="hidden" 
+          whileInView="visible" 
+          viewport={{ once: true, margin: "-100px" }} 
+          variants={fadeUp}
+          className="flex flex-col items-center lg:items-start text-center lg:text-left mb-16"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full border border-gray-200/50 dark:border-gray-800/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-xl text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-[0.15em] shadow-sm">
+            About Me
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold mt-6 tracking-tight text-gray-900 dark:text-white">
+            Less theory. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">More shipping.</span>
+          </h2>
+        </motion.div>
 
-          {/* 🔹 LEFT SIDE: Branding & Quick Stats */}
-          <motion.div
-            variants={fadeInUp}
-            className="space-y-6 lg:sticky lg:top-24"
+        {/* The Bento Box Grid */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {/* Card 1: Experience (1 col) */}
+          <motion.div 
+            variants={fadeUp} 
+            className="md:col-span-1 group relative p-8 rounded-3xl bg-white/60 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-sm overflow-hidden"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <FiCpu className="w-8 h-8 text-blue-500 mb-6" />
+            <h3 className="text-5xl font-black text-gray-900 dark:text-white mb-2 tracking-tighter">~2</h3>
+            <p className="text-sm font-bold uppercase tracking-widest text-gray-400">Years Exp.</p>
+            <p className="text-sm text-gray-500 mt-2">Including professional roles & internships.</p>
+          </motion.div>
+
+          {/* Card 2: Core Stack (2 cols) */}
+          <motion.div 
+            variants={fadeUp} 
+            className="md:col-span-2 group relative p-8 rounded-3xl bg-white/60 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-sm overflow-hidden flex flex-col justify-between"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div>
-              <h2 className="text-xs uppercase tracking-[0.3em] text-purple-600 dark:text-purple-400 font-bold">
-                // Discovery
-              </h2>
-
-              <h3 className="text-3xl md:text-4xl font-bold mt-2 tracking-tight">
-                About <span className="text-purple-600 dark:text-purple-500">Me</span>
-              </h3>
+              <FiLayers className="w-8 h-8 text-purple-500 mb-4" />
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">The MERN & Next.js Ecosystem</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-md">
+                Specialized in building multi-user platforms, role-based dashboards, and scalable APIs from the ground up.
+              </p>
             </div>
-
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="p-4 rounded-xl border border-gray-200 dark:border-white/5 bg-gray-50/50 dark:bg-white/[0.03] backdrop-blur-sm">
-                <p className="text-[10px] uppercase tracking-widest text-purple-600 dark:text-purple-400 font-bold mb-1">
-                  Focus
-                </p>
-                <p className="text-sm text-gray-800 dark:text-gray-200">
-                  Full-Stack MERN
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl border border-gray-200 dark:border-white/5 bg-gray-50/50 dark:bg-white/[0.03] backdrop-blur-sm">
-                <p className="text-[10px] uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold mb-1">
-                  Location
-                </p>
-                <p className="text-sm text-gray-800 dark:text-gray-200">
-                  Kerala, India
-                </p>
-              </div>
+            {/* Tech Icons Row */}
+            <div className="flex gap-4 mt-8 text-gray-400 dark:text-gray-500">
+              <SiNextdotjs className="w-8 h-8 group-hover:text-black dark:group-hover:text-white transition-colors" />
+              <SiReact className="w-8 h-8 group-hover:text-blue-400 transition-colors" />
+              <SiNodedotjs className="w-8 h-8 group-hover:text-green-500 transition-colors" />
+              <SiMongodb className="w-8 h-8 group-hover:text-green-600 transition-colors" />
+              <SiTailwindcss className="w-8 h-8 group-hover:text-cyan-400 transition-colors" />
             </div>
           </motion.div>
 
-          {/* 🔹 RIGHT SIDE: Narrative */}
-          <div className="space-y-8">
-            <motion.p
-              variants={fadeInUp}
-              className="text-xl md:text-2xl font-semibold leading-relaxed text-gray-900 dark:text-gray-100"
-            >
-              I bridge the gap between complex business requirements and high-performance digital solutions.
-            </motion.p>
+          {/* Card 3: AI Architecture (2 cols) */}
+          <motion.div 
+            variants={fadeUp} 
+            className="md:col-span-2 group relative p-8 rounded-3xl bg-white/60 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-sm overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <FiDatabase className="w-8 h-8 text-green-500 mb-4" />
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Advanced AI Architecture</h3>
+            <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-lg">
+              Designing multi-tenant backend systems with intent-based routing between Private/Public LLMs, utilizing <strong className="text-gray-900 dark:text-gray-200">pgvector</strong> for precise context caching.
+            </p>
+          </motion.div>
 
-            <div className="space-y-6">
-              <motion.p
-                variants={fadeInUp}
-                className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl"
-              >
-                Specializing in the MERN stack, I build scalable web applications designed for real-world impact. From multi-tenant systems to secure payment integrations, I focus on creating production-ready software that is both reliable and maintainable.
-              </motion.p>
-
-              <motion.p
-                variants={fadeInUp}
-                className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl"
-              >
-                My approach prioritizes **clean architecture** and **efficient system design**. I thrive on solving backend challenges—optimizing APIs, implementing robust authentication flows, and ensuring systems scale seamlessly as user bases grow.
-              </motion.p>
+          {/* Card 4: Location (1 col) */}
+          <motion.div 
+            variants={fadeUp} 
+            className="md:col-span-1 group relative p-8 rounded-3xl bg-white/60 dark:bg-gray-900/50 backdrop-blur-xl border border-gray-200/50 dark:border-gray-800/50 shadow-sm overflow-hidden flex flex-col justify-center items-center text-center"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100/50 to-transparent dark:from-gray-800/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="p-4 bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full mb-4 relative z-10">
+              <FiMapPin className="w-6 h-6 text-gray-700 dark:text-gray-300" />
             </div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white relative z-10">Kerala, India</h3>
+            <p className="text-sm text-gray-500 mt-1 relative z-10">Working Globally</p>
+          </motion.div>
 
-            {/* Core Competencies (Instead of just Tech names) */}
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-wrap gap-3 pt-4 border-t border-gray-100 dark:border-white/5"
-            >
-              {[
-                "System Architecture",
-                "API Optimization",
-                "Multi-Tenant SaaS",
-                "Database Design",
-                "Workflow Automation",
-              ].map((competency) => (
-                <span
-                  key={competency}
-                  className="
-                    px-4 py-1.5 text-[11px] font-mono tracking-wider rounded-md
-                    bg-gray-100 dark:bg-white/[0.03]
-                    text-gray-700 dark:text-gray-400
-                    border border-gray-200 dark:border-white/10
-                  "
-                >
-                  {competency}
-                </span>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

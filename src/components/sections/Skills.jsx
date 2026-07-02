@@ -6,7 +6,8 @@ import {
   RiLayout4Line, 
   RiServerLine, 
   RiDatabaseLine, 
-  RiHammerLine 
+  RiHammerLine,
+  RiFlowChart
 } from "react-icons/ri";
 import { 
   SiMongodb, 
@@ -21,7 +22,9 @@ import {
   SiReact,
   SiExpress,
   SiJavascript,
-  SiGit
+  SiGit,
+  SiPostgresql,
+  SiStrapi
 } from "react-icons/si";
 
 export default function Skills() {
@@ -53,9 +56,7 @@ export default function Skills() {
       title: "Frontend Architecture",
       icon: <RiLayout4Line size={22} />,
       span: "md:col-span-3",
-      bg: "bg-blue-500/5",
-      border: "border-blue-500/10",
-      accent: "text-blue-600 dark:text-blue-400",
+      accent: "text-blue-500 dark:text-blue-400",
       skills: [
         { name: "React.js", icon: <SiReact />, color: "#61DAFB" },
         { name: "Next.js", icon: <SiNextdotjs />, color: "#000000", darkColor: "#FFFFFF" },
@@ -67,9 +68,7 @@ export default function Skills() {
       title: "Backend Engineering",
       icon: <RiServerLine size={22} />,
       span: "md:col-span-3",
-      bg: "bg-purple-500/5",
-      border: "border-purple-500/10",
-      accent: "text-purple-600 dark:text-purple-400",
+      accent: "text-green-500 dark:text-green-400",
       skills: [
         { name: "Node.js", icon: <SiNodedotjs />, color: "#339933" },
         { name: "Express.js", icon: <SiExpress />, color: "#000000", darkColor: "#FFFFFF" },
@@ -78,40 +77,35 @@ export default function Skills() {
       ],
     },
     {
-      title: "Database Systems",
+      title: "Database & AI Infra",
       icon: <RiDatabaseLine size={22} />,
-      span: "md:col-span-2",
-      bg: "bg-emerald-500/5",
-      border: "border-emerald-500/10",
-      accent: "text-emerald-600 dark:text-emerald-400",
+      span: "md:col-span-3",
+      accent: "text-purple-500 dark:text-purple-400",
       skills: [
         { name: "MongoDB", icon: <SiMongodb />, color: "#47A248" },
+        { name: "pgvector", icon: <SiPostgresql />, color: "#4169E1" },
         { name: "Firebase", icon: <SiFirebase />, color: "#FFCA28" },
       ],
     },
     {
-      title: "Tools & DevOps",
-      icon: <RiHammerLine size={22} />,
-      span: "md:col-span-4",
-      bg: "bg-gray-500/5",
-      border: "border-gray-500/10",
-      accent: "text-gray-600 dark:text-gray-400",
+      title: "Integrations & DevOps",
+      icon: <RiFlowChart size={22} />,
+      span: "md:col-span-3",
+      accent: "text-orange-500 dark:text-orange-400",
       skills: [
+        { name: "Strapi", icon: <SiStrapi />, color: "#2E7EEA" },
         { name: "Docker", icon: <SiDocker />, color: "#2496ED" },
-        { name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
         { name: "Git", icon: <SiGit />, color: "#F05032" },
+        { name: "Postman", icon: <SiPostman />, color: "#FF6C37" },
       ],
     },
   ];
 
   return (
-    <section id="skills" className="relative py-32 bg-white dark:bg-[#0a0a0a] transition-colors duration-300 overflow-hidden">
+    <section id="skills" className="relative py-24 lg:py-32 bg-gray-50/50 dark:bg-[#0a0a0a]/50 transition-colors duration-300 overflow-hidden">
       
-      {mounted && (
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-purple-500/5 dark:bg-purple-600/5 rounded-full blur-[160px]" />
-        </div>
-      )}
+      {/* Subtle top border for seamless blending */}
+      <div className="absolute top-0 w-full max-w-6xl left-1/2 -translate-x-1/2 px-6 h-px bg-gray-200/50 dark:bg-gray-800/50" />
 
       <motion.div
         variants={containerVariants}
@@ -120,15 +114,18 @@ export default function Skills() {
         viewport={{ once: true, margin: "-100px" }}
         className="max-w-6xl mx-auto px-6 relative z-10"
       >
-        {/* Header Section */}
-        <motion.div variants={fadeInUp} className="mb-20 space-y-4">
-          <h2 className="text-[10px] uppercase tracking-[0.6em] text-purple-600 dark:text-purple-400 font-bold">
-            // Capabilities
+        {/* Header Section - Blended to match Hero & About */}
+        <motion.div 
+          variants={fadeInUp} 
+          className="flex flex-col items-center lg:items-start text-center lg:text-left mb-16"
+        >
+          <span className="inline-block px-4 py-1.5 rounded-full border border-gray-200/50 dark:border-gray-800/50 bg-white/60 dark:bg-gray-900/50 backdrop-blur-xl text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-[0.15em] shadow-sm">
+            Technical Toolkit
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold mt-6 tracking-tight text-gray-900 dark:text-white">
+            The infrastructure behind the logic.
           </h2>
-          <h3 className="text-5xl md:text-6xl font-bold tracking-tighter">
-            Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-500 dark:from-purple-400 dark:to-blue-500">Toolkit.</span>
-          </h3>
-          <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base max-w-xl leading-relaxed">
+          <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-xl leading-relaxed">
             A specialized collection of technologies I use to build high-performance, scalable applications with a focus on clean architecture.
           </p>
         </motion.div>
@@ -139,18 +136,23 @@ export default function Skills() {
             <motion.div
               key={idx}
               variants={fadeInUp}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -2 }} // Subtler hover effect
               className={`
-                ${cat.span} p-8 rounded-[2.5rem] border transition-all duration-500
-                ${cat.bg} ${cat.border}
-                dark:backdrop-blur-sm group relative overflow-hidden
+                ${cat.span} p-8 rounded-3xl border transition-all duration-300
+                bg-white/60 dark:bg-gray-900/50 backdrop-blur-xl
+                border-gray-200/50 dark:border-gray-800/50
+                shadow-sm hover:shadow-md
+                group relative overflow-hidden flex flex-col justify-between
               `}
             >
+              {/* Subtle hover gradient matched to the category accent */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${cat.accent.replace('text-', 'from-').replace('dark:text-', 'dark:from-')} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+              
               <div className="flex items-center gap-4 mb-8 relative z-10">
-                <div className={`w-12 h-12 rounded-2xl bg-white dark:bg-white/5 shadow-sm flex items-center justify-center border border-gray-100 dark:border-white/5 ${cat.accent} group-hover:scale-110 transition-transform duration-500`}>
+                <div className={`w-12 h-12 rounded-full bg-gray-50 dark:bg-gray-800 flex items-center justify-center border border-gray-100 dark:border-gray-700 ${cat.accent}`}>
                   {cat.icon}
                 </div>
-                <h4 className="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-[0.3em]">
+                <h4 className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">
                   {cat.title}
                 </h4>
               </div>
@@ -160,15 +162,15 @@ export default function Skills() {
                   <div
                     key={sIdx}
                     className="
-                      flex items-center gap-2.5 px-4 py-2.5 rounded-xl
-                      bg-white dark:bg-white/[0.04] border border-gray-200 dark:border-white/5
-                      text-[12px] font-mono text-gray-700 dark:text-gray-200
-                      hover:border-purple-500/40 transition-all duration-300
+                      flex items-center gap-2 px-3 py-2 rounded-lg
+                      bg-gray-50 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700
+                      text-xs font-medium text-gray-700 dark:text-gray-300
+                      hover:border-gray-300 dark:hover:border-gray-500 transition-colors
                     "
                   >
                     <span 
                       style={{ color: mounted && document.documentElement.classList.contains('dark') ? (skill.darkColor || skill.color) : skill.color }} 
-                      className="text-lg opacity-90"
+                      className="text-base"
                     >
                       {skill.icon}
                     </span>

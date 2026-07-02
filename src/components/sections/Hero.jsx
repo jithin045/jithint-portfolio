@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 
 export default function Hero() {
   const fadeInUp = {
@@ -25,51 +27,32 @@ export default function Hero() {
     <section
       className="
         relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20
-        bg-white text-black
+        bg-gray-50 text-gray-900
         dark:bg-[#0a0a0a] dark:text-white
         transition-colors duration-300
       "
     >
-      {/* 🌌 Background Glow */}
-      <div className="absolute inset-0 -z-10">
-        <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="
-            absolute top-[-10%] left-[-5%] w-[400px] h-[400px]
-            bg-purple-500/10 dark:bg-purple-900/20
-            rounded-full blur-[120px]
-          "
-        />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.15, 0.08] }}
-          transition={{ duration: 12, repeat: Infinity }}
-          className="
-            absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px]
-            bg-blue-500/10 dark:bg-blue-900/10
-            rounded-full blur-[140px]
-          "
-        />
-      </div>
+      {/* 🌌 Minimal Background - Clean and professional */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-200 via-transparent to-transparent dark:from-gray-900"></div>
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full"
+        className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full"
       >
-        {/* 🔹 LEFT */}
-        <div className="text-center lg:text-left order-2 lg:order-1">
+        {/* 🔹 LEFT COLUMN */}
+        <div className="text-center lg:text-left order-2 lg:order-1 flex flex-col items-center lg:items-start">
 
           {/* Badge */}
           <motion.span
             variants={fadeInUp}
             className="
-              inline-block px-4 py-1 rounded-full
-              border border-black/10 dark:border-white/10
-              bg-black/5 dark:bg-white/5
-              text-purple-500 text-xs font-bold uppercase tracking-[0.2em]
+              inline-block px-4 py-1.5 rounded-full
+              border border-gray-200 dark:border-gray-800
+              bg-white dark:bg-gray-900
+              text-gray-600 dark:text-gray-300 text-xs font-bold uppercase tracking-[0.15em] shadow-sm
             "
           >
             Full Stack Developer
@@ -78,26 +61,26 @@ export default function Hero() {
           {/* Name */}
           <motion.h1
             variants={fadeInUp}
-            className="text-4xl md:text-6xl font-extrabold mt-4 tracking-tight"
+            className="text-5xl md:text-7xl font-extrabold mt-6 tracking-tight text-gray-900 dark:text-white"
           >
-            Jithin T
+            Hi, I'm Jithin.
           </motion.h1>
 
           {/* Typewriter */}
           <motion.div
             variants={fadeInUp}
-            className="mt-3 text-xl text-purple-500"
+            className="mt-4 text-xl md:text-2xl font-medium text-blue-600 dark:text-blue-400 h-8"
           >
             <Typewriter
               options={{
                 strings: [
-                  "Building Multi-Tenant Systems",
-                  "Designing Scalable Backend APIs",
-                  "Solving Real-World Business Problems",
+                  "I build scalable web applications.",
+                  "I design robust backend APIs.",
+                  "I create seamless user experiences.",
                 ],
                 autoStart: true,
                 loop: true,
-                delay: 30,
+                delay: 40,
                 deleteSpeed: 20,
               }}
             />
@@ -106,10 +89,9 @@ export default function Hero() {
           {/* Tagline */}
           <motion.h2
             variants={fadeInUp}
-            className="text-base md:text-lg mt-4 text-gray-700 dark:text-gray-300"
+            className="text-base md:text-lg mt-6 text-gray-800 dark:text-gray-200 font-medium"
           >
-            I build scalable web applications with clean architecture and
-            real-world problem solving.
+            I build scalable web applications with clean architecture and real-world problem solving.
           </motion.h2>
 
           {/* Paragraph */}
@@ -120,97 +102,95 @@ export default function Hero() {
               max-w-md mx-auto lg:mx-0 text-base leading-relaxed
             "
           >
-            Specialized in developing multi-user systems, role-based dashboards,
-            and secure backend architectures using the MERN stack. I focus on
-            writing maintainable code and designing systems that scale efficiently.
+            Specialized in developing multi-user systems, role-based dashboards, and secure backend architectures using the MERN stack. I focus on writing maintainable code and designing systems that scale efficiently.
           </motion.p>
 
-          {/* Divider */}
+          {/* CTAs */}
           <motion.div
             variants={fadeInUp}
-            className="mt-6 h-px w-20 bg-gradient-to-r from-purple-500 to-transparent mx-auto lg:mx-0"
-          />
-
-          {/* CTA */}
-          <motion.div
-            variants={fadeInUp}
-            className="mt-6 flex flex-col sm:flex-row justify-center lg:justify-start gap-3"
+            className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
           >
-            <motion.a
+            <a
               href="#projects"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               className="
-                px-6 py-3 rounded-lg
-                bg-gradient-to-r from-purple-600 to-blue-500
-                text-white font-semibold shadow-md
-                hover:shadow-purple-500/30 transition-all text-center
+                px-8 py-3 rounded-lg
+                bg-gray-900 dark:bg-white
+                text-white dark:text-gray-900 font-semibold shadow-md
+                hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors text-center
               "
             >
               View Projects
-            </motion.a>
+            </a>
 
-            <motion.a
+            <a
               href="/Jithin_t_Resume.pdf"
               download="Jithin_t_Resume.pdf" 
-              whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
               className="
-                px-6 py-3 rounded-lg
-                border border-black/20 dark:border-white/20
-                text-black dark:text-white
-                font-medium transition-all text-center
+                px-8 py-3 rounded-lg
+                border border-gray-300 dark:border-gray-700
+                text-gray-800 dark:text-gray-200
+                font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-center
               "
             >
-              Resume
-            </motion.a>
+              Download Resume
+            </a>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div variants={fadeInUp} className="mt-8 flex items-center gap-6 text-gray-500 dark:text-gray-400">
+            <a href="https://github.com/jithin045" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-white transition-colors">
+              <FaGithub className="w-6 h-6" />
+              <span className="sr-only">GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/jithin-thaliyil" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <FaLinkedin className="w-6 h-6" />
+              <span className="sr-only">LinkedIn</span>
+            </a>
+            <a href="mailto:your-email@gmail.com" className="hover:text-red-500 dark:hover:text-red-400 transition-colors">
+              <HiOutlineMail className="w-7 h-7" />
+              <span className="sr-only">Email</span>
+            </a>
           </motion.div>
         </div>
 
-        {/* 🔹 RIGHT */}
+        {/* 🔹 RIGHT COLUMN */}
         <motion.div
           variants={fadeInUp}
-          className="order-1 lg:order-2 flex justify-center"
+          className="order-1 lg:order-2 flex justify-center lg:justify-end"
         >
-          <div className="relative group">
-            {/* Soft inner glow behind the transparent image */}
-            <div className="absolute inset-4 bg-purple-600/10 rounded-full blur-[60px]" />
-
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-64 h-64 md:w-80 md:h-80"
-            >
+          <div className="relative w-64 h-64 md:w-80 md:h-80">
+            {/* Clean, professional concentric rings */}
+            <div className="absolute inset-0 rounded-full border border-gray-200 dark:border-gray-800 scale-[1.05]" />
+            <div className="absolute inset-0 rounded-full border border-dashed border-gray-300 dark:border-gray-700 scale-[1.12] animate-[spin_40s_linear_infinite]" />
+            
+            <div className="relative w-full h-full rounded-full overflow-hidden bg-gray-100 dark:bg-gray-900 shadow-xl border border-gray-200 dark:border-gray-800">
               <img
                 src="/image.png"
                 alt="Jithin Avatar"
-                className="
-                  w-full h-full object-contain
-                  rounded-full
-                  /* Remove solid background and border for a floating effect */
-                "
+                className="w-full h-full object-cover"
               />
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       </motion.div>
 
-      {/* Scroll */}
+      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 cursor-pointer"
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
         onClick={() =>
           window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
         }
       >
-        <span className="text-[10px] uppercase tracking-widest text-gray-500">
+        <span className="text-[10px] uppercase tracking-widest text-gray-400 font-semibold">
           Scroll
         </span>
         <motion.div
-          animate={{ height: [15, 30, 15] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="w-[1px] bg-gradient-to-b from-purple-500 to-transparent"
+          animate={{ height: [12, 24, 12] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-[2px] bg-gray-400 dark:bg-gray-600 rounded-full"
         />
       </motion.div>
     </section>
